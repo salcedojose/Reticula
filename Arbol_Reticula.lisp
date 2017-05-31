@@ -175,12 +175,13 @@
 (TERPRI)
 (TERPRI)
 
-(defun sub-tree(tree attribute-value) (second (assoc attribute-value (cdr tree) :test #'equalp)))
+(defun sub-tree(tree attribute-value)  (assoc attribute-value (cdr tree) :test #'equalp))
 (write (sub-tree arbol "semestreocho"))
 (TERPRI)
+(TERPRI)
 
-(defun sub-tree(tree attribute-value) (third (assoc attribute-value (cdr tree) :test #'equalp)))
-(write (sub-tree arbol "semestreocho"))
+(defun sub-tree(tree attribute-value) (second (assoc attribute-value (cdr tree) :test #'equalp)))
+(write (sub-tree arbol "semestrenueve"))
 (TERPRI)
 (TERPRI)
 
@@ -188,7 +189,3 @@
 (write (leaf arbol))
 (TERPRI)
 (TERPRI)
-
-(defun print-tree (tree &optional (depth 0)) (mytab depth) (format t "~A~%" (first tree)) (loop for subtree in (cdr tree) do (mytab (+ depth 1)) (format t "- ~A" (first subtree)) (if (atom (second subtree)) (format t " -> ~A~%" (second subtree)) (progn (terpri) (print-tree (second subtree) (+ depth 5))))))
-
-(defun mytab (n) (loop for i from 1 to n do (format t " ")))
