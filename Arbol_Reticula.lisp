@@ -180,8 +180,8 @@
 (TERPRI)
 (TERPRI)
 
-(defun sub-tree(tree attribute-value) (second (assoc attribute-value (cdr tree) :test #'equalp)))
-(write (sub-tree arbol "semestrenueve"))
+(defun sub-tree1(tree attribute-value) (second (assoc attribute-value (cdr tree) :test #'equalp)))
+(write (sub-tree1 arbol "semestrenueve"))
 (TERPRI)
 (TERPRI)
 
@@ -189,3 +189,21 @@
 (write (leaf arbol))
 (TERPRI)
 (TERPRI)
+
+(defun print_Hole_branch(tree leaf_name) 
+	((if (leaf tree)
+		((if (equalp leaf_name tree)
+			(
+				(write tree)
+				(return T)
+			)
+			(
+				(return nil)
+			))
+		(if (print_Hole_branch((cdr tree) leaf_name))
+			((write car arbol)
+				(return T))
+			(return nil)
+		))
+	)))
+(print_Hole_branch arbol "papeleo")
