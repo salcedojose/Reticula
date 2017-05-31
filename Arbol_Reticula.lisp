@@ -166,7 +166,7 @@
 			(residencia 
 				(papeleo si) 
 				(practicas no)))))
-
+(write arbol)
 (defun root(tree) (car tree))
 
 (defun sub-tree(tree attribute-value) (second (assoc attribute-value (cdr tree))))
